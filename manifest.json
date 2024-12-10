@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "ProCSS Tools",
+    "version": "1.0",
+    "description": "A tool to find unused CSS, extract color codes, use a ruler, and convert CSS to Tailwind or Bootstrap.",
+    "icons": {
+      "16": "src/assets/icons/icon16.png",
+      "48": "src/assets/icons/icon48.png",
+      "128": "src/assets/icons/icon128.png"
+    },
+    "action": {
+      "default_popup": "src/popup/popup.html",
+      "default_icon": "src/assets/icons/icon48.png"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "scripting"
+    ],
+    "background": {
+      "service_worker": "src/background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["src/content.js"]
+      }
+    ],
+    "options_page": "src/options/options.html"
+  }
+  
